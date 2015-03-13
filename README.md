@@ -17,9 +17,7 @@ I begin my code with thoughts of separation and modularity which I can explain i
 
 ## Requirements:
 
-To run this game you will need a browser with specific version that fully supports the canvas element,
-
-which those browsers and versions are:
+To run this game you will need a browser with specific version that fully supports the canvas element, which those browsers and versions are:
 
 - Chrome: 4.0+
 - IE(Internet Explorer): 9.0+
