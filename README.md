@@ -17,7 +17,7 @@ I begin my code with thoughts of separation and modularity which I can explain i
 
 ## Game Requirements:
 
-You will need a browser with specific version that fully supports the <canvas> element, which are:
+You will need a browser with specific version that fully supports the canvas element, which are:
 
 - Chrome: 4.0+
 - IE(Internet Explorer): 9.0+
