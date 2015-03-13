@@ -1,4 +1,4 @@
-# Project Solution
+# Frontend Nanodegree Arcade Game
 
 I begin my code with thoughts of separation and modularity which I can explain it as point as following:
 
@@ -15,9 +15,11 @@ I begin my code with thoughts of separation and modularity which I can explain i
 11. Check Y hits between Player and enemies.
 12. Optimize Hits trigger for Reset.
 
-## Game Requirements:
+## Requirements:
 
-You will need a browser with specific version that fully supports the canvas element, which those browsers and versions are:
+To run this game you will need a browser with specific version that fully supports the canvas element,
+
+which those browsers and versions are:
 
 - Chrome: 4.0+
 - IE(Internet Explorer): 9.0+
@@ -25,7 +27,7 @@ You will need a browser with specific version that fully supports the canvas ele
 - Safari: 3.1+
 - Opera: 9.0+
 
-## Game Instructions:
+## Instructions:
 
 There are three zones in this game organized from bottom to top with these order(Grass, Roads & Sea):
 
@@ -39,11 +41,9 @@ You can move your player by arrows keypads in your keyboard, which makes your pl
 Enemies are moving in Roads from left to right in different speeds. So, watch out.
 Finally, The Sea is not moving.
 
+I forget to mention that your enemy is a Big Bug and a Player is boy, strong boy.
+
 The game objective is to move anywhere and try to avoid any contact with Sea and your Enemies, hope you win.
 
-frontend-nanodegree-arcade-game
-===============================
-
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
+## License:
+It's Completely Free. But, Do whatever you like to do on your own full responsibility;
