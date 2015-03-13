@@ -1,3 +1,5 @@
+"use strict"; // Run game global environment in strict mode for more precision
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -5,9 +7,8 @@ var Enemy = function() {
     
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-
     this.sprite = 'images/enemy-bug.png';
-    this.row_position = [60, 145, 230];
+    this.row_position = [135, 220, 300];
     
     // Enemy move speed.
     this.speeds = [100, 250, 500];
@@ -16,7 +17,7 @@ var Enemy = function() {
     this.x_speed = this.speeds[Math.round(Math.random() * (this.speeds.length - 1))];
     
     // Enemy x position is negative, because I won't to jump on screen without normal moves from left to rigth.
-    this.x = -this.x_speed;
+    this.x = -(this.x_speed);
 
     // Enemy y position chosen randomly.
     this.y = this.row_position[Math.round(Math.random() * (this.row_position.length - 1))];
@@ -45,7 +46,10 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game.
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    var img = Resources.get(this.sprite);
+    this.height = img.height;
+    this.width = img.width;
+    ctx.drawImage(img, this.x, this.y);
 };
 
 // Now write your own player class
@@ -57,8 +61,8 @@ var Player = function(){
     this.hero = 'images/char-boy.png';
 
     // Start point
-    this.x_start_point = 200;
-    this.y_start_point = 380;
+    this.x_start_point = 218;
+    this.y_start_point = 455;
 
     // Default positions for player.
     this.x = this.x_start_point;
@@ -83,59 +87,60 @@ Player.prototype.update = function(){
     var current_player = this;
     
     // Reset game if player goes to sea.
-    if(this.y <= -20){
+    if(this.y <= 55){
        this.reset();
     }
 
     allEnemies.forEach(function(enemy){
         // Check intersection with player and enemy in y coordinates.
-        if((enemy.y == 60 && current_player.y == 60) || (enemy.y == 145 && current_player.y == 140) || (enemy.y == 230 && current_player.y == 220)){
-            // Check intersection with player and enemy in x coordinates.
-            if(enemy.step == current_player.x  || (enemy.step - current_player.x >= 0  && enemy.step - current_player.x <= 9) ){
-                current_player.reset();
-            }
+        
+        if (current_player.x < enemy.x + enemy.width &&
+           current_player.x + current_player.width > enemy.x &&
+           current_player.y < enemy.y + enemy.height &&
+           current_player.height + (current_player.y - 10) > enemy.y) {
+            // collision detected!
+            current_player.reset();
         }
     });
 };
 
 // Draw the player on the screen, required method for game.
 Player.prototype.render = function(){
-    ctx.drawImage(Resources.get(this.hero), this.x, this.y);
+    var img = Resources.get(this.hero);
+    this.height = img.height;
+    this.width = img.width;
+    ctx.drawImage(img, this.x, this.y);
 };
 
 // Player cotroller method
 Player.prototype.handleInput = function(key){
-    
+    console.log('player', this.x, this.y, 'canvas', ctx.canvas.width, ctx.canvas.height);
     switch(key){
         // Left key if pressed.
         case 'left':
-            if(this.x > 0 && this.x < ctx.canvas.width){
+            if(this.x > 18 && this.x < ctx.canvas.width){
                 this.x -= this.x_step;
-                console.log("(left): " + this.x, this.y);
             }
         break;
         
         // Up key if pressed.
         case 'up':
-            if(this.y > 0 && this.x < ctx.canvas.height){
+            if(this.y > 55 /*&& (this.y + this.y_step) < ctx.canvas.height*/){
                 this.y -= this.y_step;
-                console.log("(up): " + this.x, this.y);
             }
         break;
         
         // Right key if pressed.
         case 'right':
-            if(this.x >= 0 && (this.x + (this.x_step * 2) < ctx.canvas.width)){
+            if(this.x >= 0 && (this.x + this.x_step) < ctx.canvas.width){
                 this.x += this.x_step;
-                console.log("(right): " + this.x, this.y);
             }
         break;
         
         // Down key if pressed.
         case 'down':
-            if(this.y >= -20 && (this.y + (this.y_step * 3) < ctx.canvas.height)){
+            if(this.y > 455 || this.y < 455){
                 this.y += this.y_step;
-                console.log("(down): " + this.x, this.y);
             }
         break;
     }
