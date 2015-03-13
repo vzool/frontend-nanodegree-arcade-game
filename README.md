@@ -15,6 +15,16 @@ I begin my code with thoughts of separation and modularity which I can explain i
 11. Check Y hits between Player and enemies.
 12. Optimize Hits trigger for Reset.
 
+## Game Requirements:
+
+You will need a browser with specific version that fully supports the <canvas> element, which are:
+
+- Chrome: 4.0+
+- IE(Internet Explorer): 9.0+
+- Firefox: 2.0+
+- Safari: 3.1+
+- Opera: 9.0+
+
 ## Game Instructions:
 
 There are three zones in this game organized from bottom to top with these order(Grass, Roads & Sea):
