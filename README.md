@@ -20,8 +20,10 @@ I begin my code with thoughts of separation and modularity which I can explain i
 There are three zones in this game organized from bottom to top with these order(Grass, Roads & Sea):
 
 1. Grass: it's most safest place for you from any danger, and Grass is in Green color.
-2- Roads: it's your enemies path, and Roads is in Yellow color.
-3- Sea: it's most danger place for you, any move over sea means death for you and Sea in Blue color.
+
+2. Roads: it's your enemies path, and Roads is in Yellow color.
+
+3. Sea: it's most danger place for you, any move over sea means death for you and Sea in Blue color.
 
 You can move your player by arrows keypads in your keyboard, which makes your player to move in four directions(right, up, left & down).
 Enemies are moving in Roads from left to right in different speeds. So, watch out.
